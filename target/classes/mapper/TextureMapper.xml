@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.bdyy.jewelry.dao.TextureMapper">
+  <resultMap id="BaseResultMap" type="org.bdyy.jewelry.pojo.Texture">
+    <id column="texture_id" jdbcType="INTEGER" property="textureId" />
+    <result column="texture_name" jdbcType="VARCHAR" property="textureName" />
+    <result column="texture_token" jdbcType="VARCHAR" property="textureToken" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    texture_id, texture_name, texture_token
+  </sql>
+  <select id="selectByExample" parameterType="org.bdyy.jewelry.pojo.TextureExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from texture
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from texture
+    where texture_id = #{textureId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from texture
+    where texture_id = #{textureId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="org.bdyy.jewelry.pojo.TextureExample">
+    delete from texture
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="org.bdyy.jewelry.pojo.Texture">
+    insert into texture (texture_id, texture_name, texture_token
+      )
+    values (#{textureId,jdbcType=INTEGER}, #{textureName,jdbcType=VARCHAR}, #{textureToken,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="org.bdyy.jewelry.pojo.Texture">
+    insert into texture
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="textureId != null">
+        texture_id,
+      </if>
+      <if test="textureName != null">
+        texture_name,
+      </if>
+      <if test="textureToken != null">
+        texture_token,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="textureId != null">
+        #{textureId,jdbcType=INTEGER},
+      </if>
+      <if test="textureName != null">
+        #{textureName,jdbcType=VARCHAR},
+      </if>
+      <if test="textureToken != null">
+        #{textureToken,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="org.bdyy.jewelry.pojo.TextureExample" resultType="java.lang.Long">
+    select count(*) from texture
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update texture
+    <set>
+      <if test="record.textureId != null">
+        texture_id = #{record.textureId,jdbcType=INTEGER},
+      </if>
+      <if test="record.textureName != null">
+        texture_name = #{record.textureName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.textureToken != null">
+        texture_token = #{record.textureToken,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update texture
+    set texture_id = #{record.textureId,jdbcType=INTEGER},
+      texture_name = #{record.textureName,jdbcType=VARCHAR},
+      texture_token = #{record.textureToken,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="org.bdyy.jewelry.pojo.Texture">
+    update texture
+    <set>
+      <if test="textureName != null">
+        texture_name = #{textureName,jdbcType=VARCHAR},
+      </if>
+      <if test="textureToken != null">
+        texture_token = #{textureToken,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where texture_id = #{textureId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.bdyy.jewelry.pojo.Texture">
+    update texture
+    set texture_name = #{textureName,jdbcType=VARCHAR},
+      texture_token = #{textureToken,jdbcType=VARCHAR}
+    where texture_id = #{textureId,jdbcType=INTEGER}
+  </update>
+</mapper>

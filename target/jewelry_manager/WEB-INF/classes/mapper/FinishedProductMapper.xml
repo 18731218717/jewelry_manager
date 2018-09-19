@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.bdyy.jewelry.dao.FinishedProductMapper">
+  <resultMap id="BaseResultMap" type="org.bdyy.jewelry.pojo.FinishedProduct">
+    <id column="finished_product_id" jdbcType="INTEGER" property="finishedProductId" />
+    <result column="finished_product_code" jdbcType="VARCHAR" property="finishedProductCode" />
+    <result column="finished_product_name" jdbcType="VARCHAR" property="finishedProductName" />
+    <result column="finished_product_number" jdbcType="VARCHAR" property="finishedProductNumber" />
+    <result column="finished_product_unit" jdbcType="VARCHAR" property="finishedProductUnit" />
+    <result column="finished_product_texture" jdbcType="VARCHAR" property="finishedProductTexture" />
+    <result column="finished_product_currency" jdbcType="VARCHAR" property="finishedProductCurrency" />
+    <result column="finished_product_process_single_price" jdbcType="VARCHAR" property="finishedProductProcessSinglePrice" />
+    <result column="finished_product_process_all_price" jdbcType="VARCHAR" property="finishedProductProcessAllPrice" />
+    <result column="finished_product_cost" jdbcType="VARCHAR" property="finishedProductCost" />
+    <result column="finished_product_tag_price" jdbcType="VARCHAR" property="finishedProductTagPrice" />
+    <result column="finished_product_wholesale" jdbcType="VARCHAR" property="finishedProductWholesale" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    finished_product_id, finished_product_code, finished_product_name, finished_product_number, 
+    finished_product_unit, finished_product_texture, finished_product_currency, finished_product_process_single_price, 
+    finished_product_process_all_price, finished_product_cost, finished_product_tag_price, 
+    finished_product_wholesale
+  </sql>
+  <select id="selectByExample" parameterType="org.bdyy.jewelry.pojo.FinishedProductExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from finished_product
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from finished_product
+    where finished_product_id = #{finishedProductId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from finished_product
+    where finished_product_id = #{finishedProductId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="org.bdyy.jewelry.pojo.FinishedProductExample">
+    delete from finished_product
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="org.bdyy.jewelry.pojo.FinishedProduct">
+    insert into finished_product (finished_product_id, finished_product_code, 
+      finished_product_name, finished_product_number, 
+      finished_product_unit, finished_product_texture, 
+      finished_product_currency, finished_product_process_single_price, 
+      finished_product_process_all_price, finished_product_cost, 
+      finished_product_tag_price, finished_product_wholesale
+      )
+    values (#{finishedProductId,jdbcType=INTEGER}, #{finishedProductCode,jdbcType=VARCHAR}, 
+      #{finishedProductName,jdbcType=VARCHAR}, #{finishedProductNumber,jdbcType=VARCHAR}, 
+      #{finishedProductUnit,jdbcType=VARCHAR}, #{finishedProductTexture,jdbcType=VARCHAR}, 
+      #{finishedProductCurrency,jdbcType=VARCHAR}, #{finishedProductProcessSinglePrice,jdbcType=VARCHAR}, 
+      #{finishedProductProcessAllPrice,jdbcType=VARCHAR}, #{finishedProductCost,jdbcType=VARCHAR}, 
+      #{finishedProductTagPrice,jdbcType=VARCHAR}, #{finishedProductWholesale,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="org.bdyy.jewelry.pojo.FinishedProduct">
+    insert into finished_product
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="finishedProductId != null">
+        finished_product_id,
+      </if>
+      <if test="finishedProductCode != null">
+        finished_product_code,
+      </if>
+      <if test="finishedProductName != null">
+        finished_product_name,
+      </if>
+      <if test="finishedProductNumber != null">
+        finished_product_number,
+      </if>
+      <if test="finishedProductUnit != null">
+        finished_product_unit,
+      </if>
+      <if test="finishedProductTexture != null">
+        finished_product_texture,
+      </if>
+      <if test="finishedProductCurrency != null">
+        finished_product_currency,
+      </if>
+      <if test="finishedProductProcessSinglePrice != null">
+        finished_product_process_single_price,
+      </if>
+      <if test="finishedProductProcessAllPrice != null">
+        finished_product_process_all_price,
+      </if>
+      <if test="finishedProductCost != null">
+        finished_product_cost,
+      </if>
+      <if test="finishedProductTagPrice != null">
+        finished_product_tag_price,
+      </if>
+      <if test="finishedProductWholesale != null">
+        finished_product_wholesale,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="finishedProductId != null">
+        #{finishedProductId,jdbcType=INTEGER},
+      </if>
+      <if test="finishedProductCode != null">
+        #{finishedProductCode,jdbcType=VARCHAR},
+      </if>
+      <if test="finishedProductName != null">
+        #{finishedProductName,jdbcType=VARCHAR},
+      </if>
+      <if test="finishedProductNumber != null">
+        #{finishedProductNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="finishedProductUnit != null">
+        #{finishedProductUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="finishedProductTexture != null">
+        #{finishedProductTexture,jdbcType=VARCHAR},
+      </if>
+      <if test="finishedProductCurrency != null">
+        #{finishedProductCurrency,jdbcType=VARCHAR},
+      </if>
+      <if test="finishedProductProcessSinglePrice != null">
+        #{finishedProductProcessSinglePrice,jdbcType=VARCHAR},
+      </if>
+      <if test="finishedProductProcessAllPrice != null">
+        #{finishedProductProcessAllPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="finishedProductCost != null">
+        #{finishedProductCost,jdbcType=VARCHAR},
+      </if>
+      <if test="finishedProductTagPrice != null">
+        #{finishedProductTagPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="finishedProductWholesale != null">
+        #{finishedProductWholesale,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="org.bdyy.jewelry.pojo.FinishedProductExample" resultType="java.lang.Long">
+    select count(*) from finished_product
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update finished_product
+    <set>
+      <if test="record.finishedProductId != null">
+        finished_product_id = #{record.finishedProductId,jdbcType=INTEGER},
+      </if>
+      <if test="record.finishedProductCode != null">
+        finished_product_code = #{record.finishedProductCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.finishedProductName != null">
+        finished_product_name = #{record.finishedProductName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.finishedProductNumber != null">
+        finished_product_number = #{record.finishedProductNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.finishedProductUnit != null">
+        finished_product_unit = #{record.finishedProductUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="record.finishedProductTexture != null">
+        finished_product_texture = #{record.finishedProductTexture,jdbcType=VARCHAR},
+      </if>
+      <if test="record.finishedProductCurrency != null">
+        finished_product_currency = #{record.finishedProductCurrency,jdbcType=VARCHAR},
+      </if>
+      <if test="record.finishedProductProcessSinglePrice != null">
+        finished_product_process_single_price = #{record.finishedProductProcessSinglePrice,jdbcType=VARCHAR},
+      </if>
+      <if test="record.finishedProductProcessAllPrice != null">
+        finished_product_process_all_price = #{record.finishedProductProcessAllPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="record.finishedProductCost != null">
+        finished_product_cost = #{record.finishedProductCost,jdbcType=VARCHAR},
+      </if>
+      <if test="record.finishedProductTagPrice != null">
+        finished_product_tag_price = #{record.finishedProductTagPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="record.finishedProductWholesale != null">
+        finished_product_wholesale = #{record.finishedProductWholesale,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update finished_product
+    set finished_product_id = #{record.finishedProductId,jdbcType=INTEGER},
+      finished_product_code = #{record.finishedProductCode,jdbcType=VARCHAR},
+      finished_product_name = #{record.finishedProductName,jdbcType=VARCHAR},
+      finished_product_number = #{record.finishedProductNumber,jdbcType=VARCHAR},
+      finished_product_unit = #{record.finishedProductUnit,jdbcType=VARCHAR},
+      finished_product_texture = #{record.finishedProductTexture,jdbcType=VARCHAR},
+      finished_product_currency = #{record.finishedProductCurrency,jdbcType=VARCHAR},
+      finished_product_process_single_price = #{record.finishedProductProcessSinglePrice,jdbcType=VARCHAR},
+      finished_product_process_all_price = #{record.finishedProductProcessAllPrice,jdbcType=VARCHAR},
+      finished_product_cost = #{record.finishedProductCost,jdbcType=VARCHAR},
+      finished_product_tag_price = #{record.finishedProductTagPrice,jdbcType=VARCHAR},
+      finished_product_wholesale = #{record.finishedProductWholesale,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="org.bdyy.jewelry.pojo.FinishedProduct">
+    update finished_product
+    <set>
+      <if test="finishedProductCode != null">
+        finished_product_code = #{finishedProductCode,jdbcType=VARCHAR},
+      </if>
+      <if test="finishedProductName != null">
+        finished_product_name = #{finishedProductName,jdbcType=VARCHAR},
+      </if>
+      <if test="finishedProductNumber != null">
+        finished_product_number = #{finishedProductNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="finishedProductUnit != null">
+        finished_product_unit = #{finishedProductUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="finishedProductTexture != null">
+        finished_product_texture = #{finishedProductTexture,jdbcType=VARCHAR},
+      </if>
+      <if test="finishedProductCurrency != null">
+        finished_product_currency = #{finishedProductCurrency,jdbcType=VARCHAR},
+      </if>
+      <if test="finishedProductProcessSinglePrice != null">
+        finished_product_process_single_price = #{finishedProductProcessSinglePrice,jdbcType=VARCHAR},
+      </if>
+      <if test="finishedProductProcessAllPrice != null">
+        finished_product_process_all_price = #{finishedProductProcessAllPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="finishedProductCost != null">
+        finished_product_cost = #{finishedProductCost,jdbcType=VARCHAR},
+      </if>
+      <if test="finishedProductTagPrice != null">
+        finished_product_tag_price = #{finishedProductTagPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="finishedProductWholesale != null">
+        finished_product_wholesale = #{finishedProductWholesale,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where finished_product_id = #{finishedProductId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.bdyy.jewelry.pojo.FinishedProduct">
+    update finished_product
+    set finished_product_code = #{finishedProductCode,jdbcType=VARCHAR},
+      finished_product_name = #{finishedProductName,jdbcType=VARCHAR},
+      finished_product_number = #{finishedProductNumber,jdbcType=VARCHAR},
+      finished_product_unit = #{finishedProductUnit,jdbcType=VARCHAR},
+      finished_product_texture = #{finishedProductTexture,jdbcType=VARCHAR},
+      finished_product_currency = #{finishedProductCurrency,jdbcType=VARCHAR},
+      finished_product_process_single_price = #{finishedProductProcessSinglePrice,jdbcType=VARCHAR},
+      finished_product_process_all_price = #{finishedProductProcessAllPrice,jdbcType=VARCHAR},
+      finished_product_cost = #{finishedProductCost,jdbcType=VARCHAR},
+      finished_product_tag_price = #{finishedProductTagPrice,jdbcType=VARCHAR},
+      finished_product_wholesale = #{finishedProductWholesale,jdbcType=VARCHAR}
+    where finished_product_id = #{finishedProductId,jdbcType=INTEGER}
+  </update>
+</mapper>
