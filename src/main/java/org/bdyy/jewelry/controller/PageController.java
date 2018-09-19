@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @Controller
-public class UserController {
+public class PageController {
 
     @Resource
     private UserService userService;
