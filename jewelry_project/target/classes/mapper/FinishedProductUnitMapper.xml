@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.bdyy.jewelry.dao.FinishedProductUnitMapper">
+  <resultMap id="BaseResultMap" type="org.bdyy.jewelry.pojo.FinishedProductUnit">
+    <id column="finished_product_unit_id" jdbcType="INTEGER" property="finishedProductUnitId" />
+    <result column="unit_id" jdbcType="VARCHAR" property="unitId" />
+    <result column="finished_product_unit_all_weight" jdbcType="VARCHAR" property="finishedProductUnitAllWeight" />
+    <result column="finished_product_unit_single_weight" jdbcType="VARCHAR" property="finishedProductUnitSingleWeight" />
+    <result column="finished_product_id" jdbcType="INTEGER" property="finishedProductId" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    finished_product_unit_id, unit_id, finished_product_unit_all_weight, finished_product_unit_single_weight, 
+    finished_product_id
+  </sql>
+  <select id="selectByExample" parameterType="org.bdyy.jewelry.pojo.FinishedProductUnitExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from finished_product_unit
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from finished_product_unit
+    where finished_product_unit_id = #{finishedProductUnitId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from finished_product_unit
+    where finished_product_unit_id = #{finishedProductUnitId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="org.bdyy.jewelry.pojo.FinishedProductUnitExample">
+    delete from finished_product_unit
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="org.bdyy.jewelry.pojo.FinishedProductUnit">
+    insert into finished_product_unit (finished_product_unit_id, unit_id, finished_product_unit_all_weight, 
+      finished_product_unit_single_weight, finished_product_id
+      )
+    values (#{finishedProductUnitId,jdbcType=INTEGER}, #{unitId,jdbcType=VARCHAR}, #{finishedProductUnitAllWeight,jdbcType=VARCHAR}, 
+      #{finishedProductUnitSingleWeight,jdbcType=VARCHAR}, #{finishedProductId,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="org.bdyy.jewelry.pojo.FinishedProductUnit">
+    insert into finished_product_unit
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="finishedProductUnitId != null">
+        finished_product_unit_id,
+      </if>
+      <if test="unitId != null">
+        unit_id,
+      </if>
+      <if test="finishedProductUnitAllWeight != null">
+        finished_product_unit_all_weight,
+      </if>
+      <if test="finishedProductUnitSingleWeight != null">
+        finished_product_unit_single_weight,
+      </if>
+      <if test="finishedProductId != null">
+        finished_product_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="finishedProductUnitId != null">
+        #{finishedProductUnitId,jdbcType=INTEGER},
+      </if>
+      <if test="unitId != null">
+        #{unitId,jdbcType=VARCHAR},
+      </if>
+      <if test="finishedProductUnitAllWeight != null">
+        #{finishedProductUnitAllWeight,jdbcType=VARCHAR},
+      </if>
+      <if test="finishedProductUnitSingleWeight != null">
+        #{finishedProductUnitSingleWeight,jdbcType=VARCHAR},
+      </if>
+      <if test="finishedProductId != null">
+        #{finishedProductId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="org.bdyy.jewelry.pojo.FinishedProductUnitExample" resultType="java.lang.Long">
+    select count(*) from finished_product_unit
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update finished_product_unit
+    <set>
+      <if test="record.finishedProductUnitId != null">
+        finished_product_unit_id = #{record.finishedProductUnitId,jdbcType=INTEGER},
+      </if>
+      <if test="record.unitId != null">
+        unit_id = #{record.unitId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.finishedProductUnitAllWeight != null">
+        finished_product_unit_all_weight = #{record.finishedProductUnitAllWeight,jdbcType=VARCHAR},
+      </if>
+      <if test="record.finishedProductUnitSingleWeight != null">
+        finished_product_unit_single_weight = #{record.finishedProductUnitSingleWeight,jdbcType=VARCHAR},
+      </if>
+      <if test="record.finishedProductId != null">
+        finished_product_id = #{record.finishedProductId,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update finished_product_unit
+    set finished_product_unit_id = #{record.finishedProductUnitId,jdbcType=INTEGER},
+      unit_id = #{record.unitId,jdbcType=VARCHAR},
+      finished_product_unit_all_weight = #{record.finishedProductUnitAllWeight,jdbcType=VARCHAR},
+      finished_product_unit_single_weight = #{record.finishedProductUnitSingleWeight,jdbcType=VARCHAR},
+      finished_product_id = #{record.finishedProductId,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="org.bdyy.jewelry.pojo.FinishedProductUnit">
+    update finished_product_unit
+    <set>
+      <if test="unitId != null">
+        unit_id = #{unitId,jdbcType=VARCHAR},
+      </if>
+      <if test="finishedProductUnitAllWeight != null">
+        finished_product_unit_all_weight = #{finishedProductUnitAllWeight,jdbcType=VARCHAR},
+      </if>
+      <if test="finishedProductUnitSingleWeight != null">
+        finished_product_unit_single_weight = #{finishedProductUnitSingleWeight,jdbcType=VARCHAR},
+      </if>
+      <if test="finishedProductId != null">
+        finished_product_id = #{finishedProductId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where finished_product_unit_id = #{finishedProductUnitId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.bdyy.jewelry.pojo.FinishedProductUnit">
+    update finished_product_unit
+    set unit_id = #{unitId,jdbcType=VARCHAR},
+      finished_product_unit_all_weight = #{finishedProductUnitAllWeight,jdbcType=VARCHAR},
+      finished_product_unit_single_weight = #{finishedProductUnitSingleWeight,jdbcType=VARCHAR},
+      finished_product_id = #{finishedProductId,jdbcType=INTEGER}
+    where finished_product_unit_id = #{finishedProductUnitId,jdbcType=INTEGER}
+  </update>
+</mapper>
