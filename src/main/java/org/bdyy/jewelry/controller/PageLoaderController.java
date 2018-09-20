@@ -14,10 +14,9 @@ public class PageLoaderController {
         User user = new User();
         user.setUserId(1);
         user.setUserName("郑凯");
-        System.out.println("my name is 郑凯");
         user.setUserPassword("123456");
-        System.out.println(JSONObject.toJSON(user).toString());
-        return "郑凯";
+        System.out.println();
+        return JSONObject.toJSON(user).toString();
     }
 }
 
