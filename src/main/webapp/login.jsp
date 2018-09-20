@@ -45,8 +45,12 @@
     $("#submit").click(function () {
         var name = $("#username").val()
         var pwd = $("#password").val()
-        $.post("http://localhost:80/login",{username:name,password:pwd},function(result){
-           alert(result)
+        $.post("http://localhost:80/login.do", {username: name, password: pwd}, function (result) {
+            /*
+            此处应该返回的是json数据,数据中包含请求验证的结果,如果验证成功,则跳转到主页面
+            取出json中的数据进行判断,是否验证成功,并且前端页面异步更新界面显示返回的json提示信息
+             */
+            window.location.href = "choose_model.do";   //这样跳转
         });
     })
 </script>

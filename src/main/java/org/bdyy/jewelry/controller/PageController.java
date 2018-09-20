@@ -29,6 +29,11 @@ public class PageController {
         return "enter_finished_product";
     }
 
+    @RequestMapping("/choose_model.do")
+    public String chooseModel(HttpServletRequest request, HttpServletResponse response) {
+        return "choose_model";
+    }
+
     @RequestMapping("/enter_materials.do")
     public String enterMaterials(HttpServletRequest request, HttpServletResponse response) {
         return "enter_materials";

@@ -13,17 +13,15 @@
     <!-- 扫描web相关的bean -->
     <context:component-scan base-package="org.bdyy.jewelry.controller"/>
 
-
     <!--&lt;!&ndash;避免IE执行AJAX时，返回JSON出现下载文件 &ndash;&gt;-->
     <!--<bean id="mappingJacksonHttpMessageConverter"-->
-          <!--class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">-->
-        <!--<property name="supportedMediaTypes">-->
-            <!--<list>-->
-                <!--<value>text/html;charset=UTF-8</value>-->
-            <!--</list>-->
-        <!--</property>-->
+    <!--class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">-->
+    <!--<property name="supportedMediaTypes">-->
+    <!--<list>-->
+    <!--<value>text/html;charset=UTF-8</value>-->
+    <!--</list>-->
+    <!--</property>-->
     <!--</bean>-->
-
 
 
     <!-- 开启SpringMVC注解模式 -->
@@ -38,12 +36,5 @@
     <!-- 静态资源默认servlet配置 -->
     <mvc:default-servlet-handler/>
 
-    <!-- 编码过滤器 -->
-    <mvc:annotation-driven>
-        <mvc:message-converters register-defaults="true">
-		<bean class="org.springframework.http.converter.StringHttpMessageConverter">
-                <constructor-arg value="UTF-8" />
-            </bean>
-        </mvc:message-converters>
-    </mvc:annotation-driven>
+
 </beans>

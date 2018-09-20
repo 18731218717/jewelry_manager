@@ -3,8 +3,6 @@
     String base_path = request.getContextPath();
     pageContext.setAttribute("base_path", base_path);
 %>
-<<<<<<< HEAD
-=======
 <script>
     function loadXMLDoc() {
         var xmlhttp;
@@ -27,7 +25,6 @@
 
     $(document).ready(loadXMLDoc());
 </script>
->>>>>>> 183a1fc7974955fa0bd591a3b9871134576ea579
 <link rel="stylesheet" href="${base_path}/static/css/enter_finished_product.css"/>
 <h2>成品进货</h2>
 <h3>样式信息</h3>
@@ -36,99 +33,87 @@
     <div class="row">
         <div class="col-md-3">
             <div class="dropdown">
-<<<<<<< HEAD
                 <button type="button" class="btn dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">商品类型
-=======
-                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">商品类型
->>>>>>> 183a1fc7974955fa0bd591a3b9871134576ea579
-                    <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                    <li role="presentation">
-                        <a role="menuitem" tabindex="-1" href="#">首饰类</a>
-                    </li>
-                    <li role="presentation">
-                        <a role="menuitem" tabindex="-1" href="#">观赏类</a>
-                    </li>
-                </ul>
+                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">商品类型
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="#">首饰类</a>
+                        </li>
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="#">观赏类</a>
+                        </li>
+                    </ul>
             </div>
 
         </div>
         <div class="col-md-3">
             <div class="dropdown">
-<<<<<<< HEAD
                 <button type="button" class="btn dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">商品大类
-=======
-                <button type="button" class="btn dropdown-toggle" id="dropdownMenu" data-toggle="dropdown">商品大类
->>>>>>> 183a1fc7974955fa0bd591a3b9871134576ea579
-                    <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                    <li role="presentation">
-                        <a role="menuitem" tabindex="-1" href="#">B 手脚链</a>
-                    </li>
-                    <li role="presentation">
-                        <a role="menuitem" tabindex="-1" href="#">E 耳环</a>
-                    </li>
-                    <li role="presentation">
-                        <a role="menuitem" tabindex="-1" href="#">H 头饰</a>
-                    </li>
-                    <li role="presentation">
-                        <a role="menuitem" tabindex="-1" href="#">I 首饰三件套</a>
-                    </li>
-                </ul>
+                    <button type="button" class="btn dropdown-toggle" id="dropdownMenu" data-toggle="dropdown">商品大类
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="#">B 手脚链</a>
+                        </li>
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="#">E 耳环</a>
+                        </li>
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="#">H 头饰</a>
+                        </li>
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="#">I 首饰三件套</a>
+                        </li>
+                    </ul>
             </div>
 
         </div>
         <div class="col-md-3">
             <div class="dropdown">
-<<<<<<< HEAD
                 <button type="button" class="btn dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">商品小类
-=======
-                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">商品小类
->>>>>>> 183a1fc7974955fa0bd591a3b9871134576ea579
-                    <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                    <li role="presentation">
-                        <a role="menuitem" tabindex="-1" href="#">A 紫水金</a>
-                    </li>
-                    <li role="presentation">
-                        <a role="menuitem" tabindex="-1" href="#">B 黑星光宝石</a>
-                    </li>
-                    <li role="presentation">
-                        <a role="menuitem" tabindex="-1" href="#">C 电气石</a>
-                    </li>
-                    <li role="presentation">
-                        <a role="menuitem" tabindex="-1" href="#">F 海蓝宝石</a>
-                    </li>
-                    <li role="presentation">
-                        <a role="menuitem" tabindex="-1" href="#">G 石榴石</a>
-                    </li>
-                </ul>
+                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">商品小类
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="#">A 紫水金</a>
+                        </li>
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="#">B 黑星光宝石</a>
+                        </li>
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="#">C 电气石</a>
+                        </li>
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="#">F 海蓝宝石</a>
+                        </li>
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="#">G 石榴石</a>
+                        </li>
+                    </ul>
             </div>
 
         </div>
         <div class="col-md-3">
             <div class="dropdown">
-<<<<<<< HEAD
                 <button type="button" class="btn dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">商品识别
-=======
-                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">商品识别
->>>>>>> 183a1fc7974955fa0bd591a3b9871134576ea579
-                    <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                    <li role="presentation">
-                        <a role="menuitem" tabindex="-1" href="#">1 红色</a>
-                    </li>
-                    <li role="presentation">
-                        <a role="menuitem" tabindex="-1" href="#">2 金色</a>
-                    </li>
-                    <li role="presentation">
-                        <a role="menuitem" tabindex="-1" href="#">3 黄色</a>
-                    </li>
-                </ul>
+                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">商品识别
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="#">1 红色</a>
+                        </li>
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="#">2 金色</a>
+                        </li>
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="#">3 黄色</a>
+                        </li>
+                    </ul>
             </div>
         </div>
     </div>
@@ -154,21 +139,18 @@
     <div class="row">
         <div class="col-md-1">
             <div class="dropdown">
-<<<<<<< HEAD
                 <button type="button" class="btn dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">单位
-=======
-                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">单位
->>>>>>> 183a1fc7974955fa0bd591a3b9871134576ea579
-                    <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                    <li role="presentation">
-                        <a role="menuitem" tabindex="-1" href="#">g</a>
-                    </li>
-                    <li role="presentation">
-                        <a role="menuitem" tabindex="-1" href="#">kg</a>
-                    </li>
-                </ul>
+                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">单位
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="#">g</a>
+                        </li>
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="#">kg</a>
+                        </li>
+                    </ul>
             </div>
         </div>
         <div class="col-md-3">
@@ -185,21 +167,18 @@
     <div class="row">
         <div class="col-md-1">
             <div class="dropdown">
-<<<<<<< HEAD
                 <button type="button" class="btn dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">材质
-=======
-                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">材质
->>>>>>> 183a1fc7974955fa0bd591a3b9871134576ea579
-                    <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                    <li role="presentation">
-                        <a role="menuitem" tabindex="-1" href="#">宝石</a>
-                    </li>
-                    <li role="presentation">
-                        <a role="menuitem" tabindex="-1" href="#">银</a>
-                    </li>
-                </ul>
+                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">材质
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="#">宝石</a>
+                        </li>
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="#">银</a>
+                        </li>
+                    </ul>
             </div>
         </div>
         <div class="col-md-3">
