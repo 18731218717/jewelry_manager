@@ -9,20 +9,6 @@
 
     <!-- 编码过滤器 -->
     <filter>
-        <filter-name>encodingFilter1</filter-name>
-        <filter-class>org.bdyy.jewelry.util.EncodingFilter</filter-class>
-        <async-supported>true</async-supported>
-        <init-param>
-            <param-name>encoding</param-name>
-            <param-value>UTF-8</param-value>
-        </init-param>
-    </filter>
-    <filter-mapping>
-        <filter-name>encodingFilter1</filter-name>
-        <url-pattern>/*</url-pattern>
-    </filter-mapping>
-
-    <filter>
         <filter-name>encodingFilter</filter-name>
         <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
         <init-param>
@@ -50,7 +36,7 @@
     <servlet-mapping>
         <servlet-name>SpringMVC</servlet-name>
         <!-- 匹配所有请求，此处也可以配置成 *.do 形式 -->
-        <url-pattern>/</url-pattern>
+        <url-pattern>*.do</url-pattern>
     </servlet-mapping>
 
     <welcome-file-list>

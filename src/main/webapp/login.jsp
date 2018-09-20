@@ -45,18 +45,9 @@
     $("#submit").click(function () {
         var name = $("#username").val()
         var pwd = $("#password").val()
-
-        // if (name == "admin" && pwd == "123")
-        //     window.location.href = "choose_model.jsp"
-        // else {
-        //     alert('登录失败');
-        //     window.location.href = "login.jsp"
-        // }
-        $.post("http://localhost:8080/login",{username:name,password:pwd},function(result){
+        $.post("http://localhost:80/login",{username:name,password:pwd},function(result){
            alert(result)
         });
-
-
     })
 </script>
 </body>

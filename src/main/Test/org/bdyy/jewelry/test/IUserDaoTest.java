@@ -16,16 +16,12 @@ public class IUserDaoTest {
 
     @Autowired
     private UserMapper userMapper;
-
     @Autowired
     private LoginService loginService;
-
     @Test
     public void testSelectUser() throws Exception {
         int id = 1;
         User user = userMapper.selectByPrimaryKey(id);
         System.out.println(user.getUserId() + " " + user.getUserName() + " " + user.getUserPassword());
-        System.out.println(loginService.login("admin","123"));
-
     }
 }

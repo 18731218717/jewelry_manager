@@ -3,6 +3,31 @@
     String base_path = request.getContextPath();
     pageContext.setAttribute("base_path", base_path);
 %>
+<<<<<<< HEAD
+=======
+<script>
+    function loadXMLDoc() {
+        var xmlhttp;
+        if (window.XMLHttpRequest) {
+            // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+            xmlhttp = new XMLHttpRequest();
+        }
+        else {
+            // IE6, IE5 浏览器执行代码
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                alert(xmlhttp.responseText);
+            }
+        }
+        xmlhttp.open("GET", "/pageLoaderController.do?t=" + Math.random(), true);
+        xmlhttp.send();
+    }
+
+    $(document).ready(loadXMLDoc());
+</script>
+>>>>>>> 183a1fc7974955fa0bd591a3b9871134576ea579
 <link rel="stylesheet" href="${base_path}/static/css/enter_finished_product.css"/>
 <h2>成品进货</h2>
 <h3>样式信息</h3>
@@ -11,7 +36,11 @@
     <div class="row">
         <div class="col-md-3">
             <div class="dropdown">
+<<<<<<< HEAD
                 <button type="button" class="btn dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">商品类型
+=======
+                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">商品类型
+>>>>>>> 183a1fc7974955fa0bd591a3b9871134576ea579
                     <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
@@ -27,7 +56,11 @@
         </div>
         <div class="col-md-3">
             <div class="dropdown">
+<<<<<<< HEAD
                 <button type="button" class="btn dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">商品大类
+=======
+                <button type="button" class="btn dropdown-toggle" id="dropdownMenu" data-toggle="dropdown">商品大类
+>>>>>>> 183a1fc7974955fa0bd591a3b9871134576ea579
                     <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
@@ -49,7 +82,11 @@
         </div>
         <div class="col-md-3">
             <div class="dropdown">
+<<<<<<< HEAD
                 <button type="button" class="btn dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">商品小类
+=======
+                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">商品小类
+>>>>>>> 183a1fc7974955fa0bd591a3b9871134576ea579
                     <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
@@ -74,7 +111,11 @@
         </div>
         <div class="col-md-3">
             <div class="dropdown">
+<<<<<<< HEAD
                 <button type="button" class="btn dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">商品识别
+=======
+                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">商品识别
+>>>>>>> 183a1fc7974955fa0bd591a3b9871134576ea579
                     <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
@@ -113,7 +154,11 @@
     <div class="row">
         <div class="col-md-1">
             <div class="dropdown">
+<<<<<<< HEAD
                 <button type="button" class="btn dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">单位
+=======
+                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">单位
+>>>>>>> 183a1fc7974955fa0bd591a3b9871134576ea579
                     <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
@@ -140,7 +185,11 @@
     <div class="row">
         <div class="col-md-1">
             <div class="dropdown">
+<<<<<<< HEAD
                 <button type="button" class="btn dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">材质
+=======
+                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">材质
+>>>>>>> 183a1fc7974955fa0bd591a3b9871134576ea579
                     <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
