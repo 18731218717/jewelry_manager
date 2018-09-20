@@ -24,8 +24,14 @@
         }
     */
     $(document).ready(function () {
-        $.get("http://localhost/pageLoaderController.do", function (result) {
-            alert(result)
+        $.ajax({
+            url: "/pageLoaderController.do",
+            type: "GET",
+            success: function (result) {
+                alert("有反应")
+                console.log(result)
+                alert(result)
+            }
         });
     });
 </script>
