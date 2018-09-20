@@ -1,7 +1,6 @@
 package org.bdyy.jewelry.controller;
 
 import org.bdyy.jewelry.service.UserService;
-import org.bdyy.jewelry.util.FilterUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -17,25 +16,21 @@ public class PageController {
 
     @RequestMapping("/stock_finished_product.do")
     public String stockFinishedProduct(HttpServletRequest request, HttpServletResponse response) {
-        FilterUtil.initEncoding(request, response);
         return "stock_finished_product";
     }
 
     @RequestMapping("/stock_materials.do")
     public String stockMaterials(HttpServletRequest request, HttpServletResponse response) {
-        FilterUtil.initEncoding(request, response);
         return "stock_materials";
     }
 
     @RequestMapping("/enter_finished_product.do")
     public String enterFinishedProduct(HttpServletRequest request, HttpServletResponse response) {
-        FilterUtil.initEncoding(request, response);
         return "enter_finished_product";
     }
 
     @RequestMapping("/enter_materials.do")
     public String enterMaterials(HttpServletRequest request, HttpServletResponse response) {
-        FilterUtil.initEncoding(request, response);
         return "enter_materials";
     }
 }
