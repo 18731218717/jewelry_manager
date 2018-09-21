@@ -1,39 +1,38 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
-    String base_path = request.getContextPath();
-    pageContext.setAttribute("base_path", base_path);
+    pageContext.setAttribute("base_path", request.getContextPath());
 %>
 <script>
-    /*    function loadXMLDoc() {
-            var xmlhttp;
-            if (window.XMLHttpRequest) {
-                // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
-                xmlhttp = new XMLHttpRequest();
-            }
-            else {
-                // IE6, IE5 浏览器执行代码
-                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-            }
-            xmlhttp.onreadystatechange = function () {
-                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                    alert(xmlhttp.responseText);
-                }
-            }
-            xmlhttp.open("GET", "/pageLoaderController.do?t=" + Math.random(), true);
-            xmlhttp.send();
-        }
-    */
     $(document).ready(function () {
         $.ajax({
             url: "/pageLoaderController.do",
             type: "GET",
             success: function (result) {
-                alert("有反应")
                 console.log(result)
                 alert(result)
             }
         });
     });
+
+
+    //处理显示部门信息，显示在下拉列表中
+    function getDepts(ele) {
+        $(ele).empty();
+        $.ajax({
+            //dept处理请求，获取所有部门信息
+            url: "${APP_PATH}/depts",
+            type: "GET",
+            success: function (result) {
+                console.log(result)
+                //显示部门信息在下拉列表中
+                //$("#empAddModal select").append("")
+                $.each(result.extend.depts, function () {
+                    var optionEle = $("<option></option>").append(this.deptName).attr("value", this.deptId);
+                    optionEle.appendTo(ele);
+                });
+            }
+        });
+    }
 </script>
 <link rel="stylesheet" href="${base_path}/static/css/enter_finished_product.css"/>
 <h2>成品进货</h2>

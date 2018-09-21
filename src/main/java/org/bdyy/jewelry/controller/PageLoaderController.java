@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class PageLoaderController {
-    @RequestMapping(value = "/pageLoaderController.do", produces = {"text/html;charset=UTF-8;", "application/json;charset=UTF-8;"})
+    @RequestMapping(value = "/pageLoaderController.do")
     @ResponseBody
     public Msg getPageInfomation() {
         User user = new User();
