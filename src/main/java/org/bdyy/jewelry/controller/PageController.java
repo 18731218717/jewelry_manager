@@ -1,6 +1,5 @@
 package org.bdyy.jewelry.controller;
 
-import org.bdyy.jewelry.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -10,10 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 
 @Controller
 public class PageController {
-
-    @Resource
-    private UserService userService;
-
     @RequestMapping("/stock_finished_product.do")
     public String stockFinishedProduct(HttpServletRequest request, HttpServletResponse response) {
         return "stock_finished_product";

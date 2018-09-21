@@ -3,28 +3,16 @@
     pageContext.setAttribute("base_path", request.getContextPath());
 %>
 <script>
-    $(document).ready(function () {
+
+    $(function () {     //当页面加载完成时,简写 $(document).ready(function () {});
+        alert("成功调用了")
         $.ajax({
+            //dept处理请求，获取所有部门信息
             url: "/pageLoaderController.do",
             type: "GET",
             success: function (result) {
                 console.log(result)
-                alert(result)
-            }
-        });
-    });
-
-
-    //处理显示部门信息，显示在下拉列表中
-    function getDepts(ele) {
-        $(ele).empty();
-        $.ajax({
-            //dept处理请求，获取所有部门信息
-            url: "${APP_PATH}/depts",
-            type: "GET",
-            success: function (result) {
-                console.log(result)
-                //显示部门信息在下拉列表中
+                //显示类型信息在下拉列表中
                 //$("#empAddModal select").append("")
                 $.each(result.extend.depts, function () {
                     var optionEle = $("<option></option>").append(this.deptName).attr("value", this.deptId);
@@ -32,7 +20,8 @@
                 });
             }
         });
-    }
+    });
+
 </script>
 <link rel="stylesheet" href="${base_path}/static/css/enter_finished_product.css"/>
 <h2>成品进货</h2>
