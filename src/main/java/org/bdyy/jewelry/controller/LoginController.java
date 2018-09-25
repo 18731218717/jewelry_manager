@@ -48,7 +48,7 @@ public class LoginController {
     }
 
     @RequestMapping("/")
-    public String ToLogin(HttpSession session, Model model) {
+    public String toLogin(HttpSession session, Model model) {
 
         boolean res = false;
         try {
