@@ -4,7 +4,7 @@
   <resultMap id="BaseResultMap" type="org.bdyy.jewelry.pojo.FinishedProductBroadHeading">
     <id column="finished_product_broad_heading_id" jdbcType="INTEGER" property="finishedProductBroadHeadingId" />
     <result column="finished_product_broad_heading_name" jdbcType="VARCHAR" property="finishedProductBroadHeadingName" />
-    <result column="finished_product_broad_token" jdbcType="VARCHAR" property="finishedProductBroadToken" />
+    <result column="finished_product_broad_heading_token" jdbcType="VARCHAR" property="finishedProductBroadHeadingToken" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -65,7 +65,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    finished_product_broad_heading_id, finished_product_broad_heading_name, finished_product_broad_token
+    finished_product_broad_heading_id, finished_product_broad_heading_name, finished_product_broad_heading_token
   </sql>
   <select id="selectByExample" parameterType="org.bdyy.jewelry.pojo.FinishedProductBroadHeadingExample" resultMap="BaseResultMap">
     select
@@ -82,7 +82,7 @@
     </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from finished_product_broad_heading
     where finished_product_broad_heading_id = #{finishedProductBroadHeadingId,jdbcType=INTEGER}
@@ -98,10 +98,10 @@
     </if>
   </delete>
   <insert id="insert" parameterType="org.bdyy.jewelry.pojo.FinishedProductBroadHeading">
-    insert into finished_product_broad_heading (finished_product_broad_heading_id, finished_product_broad_heading_name, 
-      finished_product_broad_token)
-    values (#{finishedProductBroadHeadingId,jdbcType=INTEGER}, #{finishedProductBroadHeadingName,jdbcType=VARCHAR}, 
-      #{finishedProductBroadToken,jdbcType=VARCHAR})
+    insert into finished_product_broad_heading (finished_product_broad_heading_id, finished_product_broad_heading_name,
+      finished_product_broad_heading_token)
+    values (#{finishedProductBroadHeadingId,jdbcType=INTEGER}, #{finishedProductBroadHeadingName,jdbcType=VARCHAR},
+      #{finishedProductBroadHeadingToken,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="org.bdyy.jewelry.pojo.FinishedProductBroadHeading">
     insert into finished_product_broad_heading
@@ -112,8 +112,8 @@
       <if test="finishedProductBroadHeadingName != null">
         finished_product_broad_heading_name,
       </if>
-      <if test="finishedProductBroadToken != null">
-        finished_product_broad_token,
+      <if test="finishedProductBroadHeadingToken != null">
+        finished_product_broad_heading_token,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -123,8 +123,8 @@
       <if test="finishedProductBroadHeadingName != null">
         #{finishedProductBroadHeadingName,jdbcType=VARCHAR},
       </if>
-      <if test="finishedProductBroadToken != null">
-        #{finishedProductBroadToken,jdbcType=VARCHAR},
+      <if test="finishedProductBroadHeadingToken != null">
+        #{finishedProductBroadHeadingToken,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -143,8 +143,8 @@
       <if test="record.finishedProductBroadHeadingName != null">
         finished_product_broad_heading_name = #{record.finishedProductBroadHeadingName,jdbcType=VARCHAR},
       </if>
-      <if test="record.finishedProductBroadToken != null">
-        finished_product_broad_token = #{record.finishedProductBroadToken,jdbcType=VARCHAR},
+      <if test="record.finishedProductBroadHeadingToken != null">
+        finished_product_broad_heading_token = #{record.finishedProductBroadHeadingToken,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null">
@@ -155,7 +155,7 @@
     update finished_product_broad_heading
     set finished_product_broad_heading_id = #{record.finishedProductBroadHeadingId,jdbcType=INTEGER},
       finished_product_broad_heading_name = #{record.finishedProductBroadHeadingName,jdbcType=VARCHAR},
-      finished_product_broad_token = #{record.finishedProductBroadToken,jdbcType=VARCHAR}
+      finished_product_broad_heading_token = #{record.finishedProductBroadHeadingToken,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -166,8 +166,8 @@
       <if test="finishedProductBroadHeadingName != null">
         finished_product_broad_heading_name = #{finishedProductBroadHeadingName,jdbcType=VARCHAR},
       </if>
-      <if test="finishedProductBroadToken != null">
-        finished_product_broad_token = #{finishedProductBroadToken,jdbcType=VARCHAR},
+      <if test="finishedProductBroadHeadingToken != null">
+        finished_product_broad_heading_token = #{finishedProductBroadHeadingToken,jdbcType=VARCHAR},
       </if>
     </set>
     where finished_product_broad_heading_id = #{finishedProductBroadHeadingId,jdbcType=INTEGER}
@@ -175,7 +175,7 @@
   <update id="updateByPrimaryKey" parameterType="org.bdyy.jewelry.pojo.FinishedProductBroadHeading">
     update finished_product_broad_heading
     set finished_product_broad_heading_name = #{finishedProductBroadHeadingName,jdbcType=VARCHAR},
-      finished_product_broad_token = #{finishedProductBroadToken,jdbcType=VARCHAR}
+      finished_product_broad_heading_token = #{finishedProductBroadHeadingToken,jdbcType=VARCHAR}
     where finished_product_broad_heading_id = #{finishedProductBroadHeadingId,jdbcType=INTEGER}
   </update>
 </mapper>

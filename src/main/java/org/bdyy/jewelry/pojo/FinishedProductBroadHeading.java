@@ -5,7 +5,7 @@ public class FinishedProductBroadHeading {
 
     private String finishedProductBroadHeadingName;
 
-    private String finishedProductBroadToken;
+    private String finishedProductBroadHeadingToken;
 
     public Integer getFinishedProductBroadHeadingId() {
         return finishedProductBroadHeadingId;
@@ -23,11 +23,11 @@ public class FinishedProductBroadHeading {
         this.finishedProductBroadHeadingName = finishedProductBroadHeadingName == null ? null : finishedProductBroadHeadingName.trim();
     }
 
-    public String getFinishedProductBroadToken() {
-        return finishedProductBroadToken;
+    public String getFinishedProductBroadHeadingToken() {
+        return finishedProductBroadHeadingToken;
     }
 
-    public void setFinishedProductBroadToken(String finishedProductBroadToken) {
-        this.finishedProductBroadToken = finishedProductBroadToken == null ? null : finishedProductBroadToken.trim();
+    public void setFinishedProductBroadHeadingToken(String finishedProductBroadHeadingToken) {
+        this.finishedProductBroadHeadingToken = finishedProductBroadHeadingToken == null ? null : finishedProductBroadHeadingToken.trim();
     }
 }

@@ -5,23 +5,101 @@
 <script>
 
     $(function () {     //当页面加载完成时,简写 $(document).ready(function () {});
-        alert("成功调用了")
         $.ajax({
-            //dept处理请求，获取所有部门信息
             url: "/pageLoaderController.do",
             type: "GET",
             success: function (result) {
                 console.log(result)
-                //显示类型信息在下拉列表中
-                //$("#empAddModal select").append("")
-                $.each(result.extend.depts, function () {
-                    var optionEle = $("<option></option>").append(this.deptName).attr("value", this.deptId);
-                    optionEle.appendTo(ele);
+
+                var finishedProductType = $("#select-finishedProductType");
+                var posIndex = 0;
+                $.each(result.extend.finishedProductType, function () {        //商品类型的遍历
+                    var optionEle = $("<option></option>").append(this.finishedProductTypeName);
+                    optionEle.appendTo(finishedProductType);
+                    var inputHiddle = $("<input></input>").attr("id", "finishedProductType" + posIndex).attr("value", this.finishedProductTypeToken);
+                    posIndex++;
+                    inputHiddle.appendTo(finishedProductType);
+                });
+
+
+                var finishedProductBroadHeading = $("#select-finishedProductBroadHeading");
+                posIndex = 0;     //初始化pos标记
+                $.each(result.extend.finishedProductBroadHeading, function () {        //商品大类的遍历
+                    var optionEle = $("<option></option>").append(this.finishedProductBroadHeadingName);
+                    optionEle.appendTo(finishedProductBroadHeading);
+                    var inputHiddle = $("<input></input>").attr("id", "finishedProductBroadHeading" + posIndex).attr("value", this.finishedProductBroadHeadingToken);
+                    posIndex++;
+                    inputHiddle.appendTo(finishedProductBroadHeading);
+                });
+
+
+                var finishedProductSubclass = $("#select-finishedProductSubclass");
+                posIndex = 0;
+                $.each(result.extend.finishedProductSubclass, function () {        //商品小类的遍历
+                    var optionEle = $("<option></option>").append(this.finishedProductSubclassName);
+                    optionEle.appendTo(finishedProductSubclass);
+                    var inputHiddle = $("<input></input>").attr("id", "finishedProductSubclass" + posIndex).attr("value", this.finishedProductSubclassToken);
+                    posIndex++;
+                    inputHiddle.appendTo(finishedProductSubclass);
+                });
+
+                var finishedProductDiscern = $("#select-finishedProductDiscern");
+                posIndex = 0;
+                $.each(result.extend.finishedProductDiscern, function () {        //商品识别信息的遍历
+                    var optionEle = $("<option></option>").append(this.finishedProductDiscernName);
+                    optionEle.appendTo(finishedProductDiscern);
+                    var inputHiddle = $("<input></input>").attr("id", "finishedProductDiscern" + posIndex).attr("value", this.finishedProductDiscernToken);
+                    posIndex++;
+                    inputHiddle.appendTo(finishedProductDiscern);
+                });
+
+                var texture = $("#select-texture");
+                $.each(result.extend.texture, function () {        //商品材质的遍历
+                    var optionEle = $("<option></option>").append(this.textureName);
+                    optionEle.appendTo(texture);
+                });
+
+                var unit = $("#select-unit");
+                $.each(result.extend.unit, function () {        //商品单位的遍历
+                    var optionEle = $("<option></option>").append(this.unitName);
+                    optionEle.appendTo(unit);
+                });
+
+
+                var currency = $("#select-currency");
+                $.each(result.extend.currency, function () {        //币种的遍历
+                    var optionEle = $("<option></option>").append(this.currencyName);
+                    optionEle.appendTo(currency);
                 });
             }
         });
     });
+    var finishedProductCode = "";       //存储编码
 
+    function finishedProductType(obj) {
+        alert($("#finishedProductType" + obj.selectedIndex).val())
+    }
+
+    function finishedProductBroadHeading(obj) {
+        alert($("#finishedProductBroadHeading" + obj.selectedIndex).val())
+    }
+
+    function finishedProductSubclass(obj) {
+        alert($("#finishedProductSubclass" + obj.selectedIndex).val())
+    }
+
+    function finishedProductDiscern(obj) {
+        alert($("#finishedProductDiscern" + obj.selectedIndex).val())
+    }
+
+    function texture(obj) {
+    }
+
+    function unit(obj) {
+    }
+
+    function currency(obj) {
+    }
 </script>
 <link rel="stylesheet" href="${base_path}/static/css/enter_finished_product.css"/>
 <h2>成品进货</h2>
@@ -29,99 +107,35 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-3">
-            <div class="dropdown">
-                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">商品类型
-                    <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                    <li role="presentation">
-                        <a role="menuitem" tabindex="-1" href="#">首饰类</a>
-                    </li>
-                    <li role="presentation">
-                        <a role="menuitem" tabindex="-1" href="#">观赏类</a>
-                    </li>
-                </ul>
-            </div>
+        <div class="col-md-2">
+            <select class="form-control" id="select-finishedProductType" onchange="finishedProductType(this)">
+            </select>
         </div>
-        <div class="col-md-3">
-            <div class="dropdown">
-                <button type="button" class="btn dropdown-toggle" id="dropdownMenu" data-toggle="dropdown">商品大类
-                    <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                    <li role="presentation">
-                        <a role="menuitem" tabindex="-1" href="#">B 手脚链</a>
-                    </li>
-                    <li role="presentation">
-                        <a role="menuitem" tabindex="-1" href="#">E 耳环</a>
-                    </li>
-                    <li role="presentation">
-                        <a role="menuitem" tabindex="-1" href="#">H 头饰</a>
-                    </li>
-                    <li role="presentation">
-                        <a role="menuitem" tabindex="-1" href="#">I 首饰三件套</a>
-                    </li>
-                </ul>
-            </div>
-
+        <div class="col-md-2">
+            <select class="form-control" id="select-finishedProductBroadHeading"
+                    onchange="finishedProductBroadHeading(this)">
+            </select>
         </div>
-        <div class="col-md-3">
-            <div class="dropdown">
-                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">商品小类
-                    <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                    <li role="presentation">
-                        <a role="menuitem" tabindex="-1" href="#">A 紫水金</a>
-                    </li>
-                    <li role="presentation">
-                        <a role="menuitem" tabindex="-1" href="#">B 黑星光宝石</a>
-                    </li>
-                    <li role="presentation">
-                        <a role="menuitem" tabindex="-1" href="#">C 电气石</a>
-                    </li>
-                    <li role="presentation">
-                        <a role="menuitem" tabindex="-1" href="#">F 海蓝宝石</a>
-                    </li>
-                    <li role="presentation">
-                        <a role="menuitem" tabindex="-1" href="#">G 石榴石</a>
-                    </li>
-                </ul>
-            </div>
-
+        <div class="col-md-2">
+            <select class="form-control" id="select-finishedProductSubclass" onchange="finishedProductSubclass(this)">
+            </select>
         </div>
-        <div class="col-md-3">
-            <div class="dropdown">
-                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">商品识别
-                    <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                    <li role="presentation">
-                        <a role="menuitem" tabindex="-1" href="#">1 红色</a>
-                    </li>
-                    <li role="presentation">
-                        <a role="menuitem" tabindex="-1" href="#">2 金色</a>
-                    </li>
-                    <li role="presentation">
-                        <a role="menuitem" tabindex="-1" href="#">3 黄色</a>
-                    </li>
-                </ul>
-            </div>
+        <div class="col-md-2">
+            <select class="form-control" id="select-finishedProductDiscern" onchange="finishedProductDiscern(this)">
+            </select>
         </div>
     </div>
-    <h5>此处存在一个商品编号的信息,该信息可系统自动生成</h5>
 </div>
 <h3>基本信息</h3>
 <div class="container">
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-2">
             编码:<input type="text" size="5"/>
         </div>
-        <div class="col-md-4">
-            名称:<input type="text"/>
+        <div class="col-md-2">
+            名称:<input type="text" size="5"/>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-2">
             数量:<input type="text" size="5"/>
         </div>
     </div>
@@ -130,25 +144,14 @@
 <h3>单位信息</h3>
 <div class="container">
     <div class="row">
-        <div class="col-md-1">
-            <div class="dropdown">
-                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">单位
-                    <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                    <li role="presentation">
-                        <a role="menuitem" tabindex="-1" href="#">g</a>
-                    </li>
-                    <li role="presentation">
-                        <a role="menuitem" tabindex="-1" href="#">kg</a>
-                    </li>
-                </ul>
-            </div>
+        <div class="col-md-2">
+            <select class="form-control" id="select-unit" onchange="unit(this)">
+            </select>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
             总重量:<input type="text" size="5"/>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
             均重:<input type="text" size="5"/>
         </div>
     </div>
@@ -157,28 +160,17 @@
 <h3>材质信息</h3>
 <div class="container">
     <div class="row">
-        <div class="col-md-1">
-            <div class="dropdown">
-                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">材质
-                    <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                    <li role="presentation">
-                        <a role="menuitem" tabindex="-1" href="#">宝石</a>
-                    </li>
-                    <li role="presentation">
-                        <a role="menuitem" tabindex="-1" href="#">银</a>
-                    </li>
-                </ul>
-            </div>
+        <div class="col-md-2">
+            <select class="form-control" id="select-texture" onchange="texture(this)">
+            </select>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
             重量:<input type="text" size="5"/>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
             单价:<input type="text" size="5"/>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
             总价:<input type="text" size="5"/>
         </div>
     </div>
@@ -187,28 +179,17 @@
 <h3>价格信息</h3>
 <div class="container">
     <div class="row">
-        <div class="col-md-1">
-            <div class="dropdown">
-                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">币种
-                    <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                    <li role="presentation">
-                        <a role="menuitem" tabindex="-1" href="#">人民币</a>
-                    </li>
-                    <li role="presentation">
-                        <a role="menuitem" tabindex="-1" href="#">尼克</a>
-                    </li>
-                </ul>
-            </div>
+        <div class="col-md-2">
+            <select class="form-control" id="select-currency" onchange="currency(this)">
+            </select>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
             克价:<input type="text" size="5"/>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
             总金额:<input type="text" size="5"/>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
             件价:<input type="text" size="5"/>
         </div>
     </div>
@@ -216,10 +197,10 @@
 <h3>加工信息</h3>
 <div class="container">
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-2">
             加工单价:<input type="text" size="5"/>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-2">
             加工总价:<input type="text" size="5"/>
         </div>
     </div>
@@ -227,13 +208,13 @@
 <h3>其他信息</h3>
 <div class="container">
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-2">
             商品成本:<input type="text" size="5"/>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-2">
             三折批发:<input type="text" size="5"/>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-2">
             标签价格:<input type="text" size="5"/>
         </div>
     </div>
