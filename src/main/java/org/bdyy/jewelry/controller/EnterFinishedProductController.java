@@ -12,6 +12,7 @@ public class EnterFinishedProductController {
     @ResponseBody
     public void addFinishedProduct(HttpServletRequest request) {
         String selectFinishedProductType = request.getParameter("select-finishedProductType");
+/*      String selectFinishedProductType = request.getParameter("select-finishedProductType");
         String selectFinishedProductType = request.getParameter("select-finishedProductType");
         String selectFinishedProductType = request.getParameter("select-finishedProductType");
         String selectFinishedProductType = request.getParameter("select-finishedProductType");
@@ -32,8 +33,7 @@ public class EnterFinishedProductController {
         String selectFinishedProductType = request.getParameter("select-finishedProductType");
         String selectFinishedProductType = request.getParameter("select-finishedProductType");
         String selectFinishedProductType = request.getParameter("select-finishedProductType");
-        String selectFinishedProductType = request.getParameter("select-finishedProductType");
-        String selectFinishedProductType = request.getParameter("select-finishedProductType");
+        String selectFinishedProductType = request.getParameter("select-finishedProductType");*/
         System.out.println("进入表单提交控制器,取得结果:" + selectFinishedProductType);
     }
 }
